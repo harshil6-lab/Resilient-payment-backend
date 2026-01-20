@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+from app.route.payment import router as payment_router
 
 app = FastAPI(title = "RESILIENT-PAYMENT-BACKEND") #understand this line -> # This line initializes a FastAPI application instance with the title "RESILIENT-PAYMENT-BACKEND".
 
+app.include_router(payment_router )
 @app.get("/health")
 def health_check():
     return {"status" : "Good"}
